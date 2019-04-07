@@ -10,9 +10,11 @@ public class Main {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		userInput();
+		//userInput();
 		
-		Reader.Hamilton();
+		//Reader.Hamilton();
+		
+		
 	}
 
 }
