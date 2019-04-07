@@ -1,25 +1,29 @@
 
 public class Intersection {
 	
-	private final float lon;
-	private final float lat;
+	private final double lon;
+	private final double lat;
 	
-	Intersection(float longitude, float latitude){
+	Intersection(double longitude, double latitude){
 		this.lon = longitude;
 		this.lat = latitude;
 	}
 	
-	public float getLongitude(){
+	public double getLongitude(){
 		return this.lon;
 	}
 	
-	public float getLatitude(){
+	public double getLatitude(){
 		return this.lat;
 	}
 	
-	public float distTo(Intersection x){
-		float a = this.lat - x.lat;
-		float b = this.lon - x.lon;
-		return (float) Math.sqrt(a*a + b*b);
+	public double distTo(Intersection x){
+		double a = this.lat - x.lat;
+		double b = this.lon - x.lon;
+		return Math.sqrt(a*a + b*b);
+	}
+	
+	public String toString(){
+		return "Latitude: " + this.lat + ", Longitude: " + this.lon;
 	}
 }

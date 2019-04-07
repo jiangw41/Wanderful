@@ -12,7 +12,8 @@ public class Main {
 		// TODO Auto-generated method stub
 		//userInput();
 		
-		//Reader.Hamilton();
+		Intersection[] x = Reader.Hamilton();
+		System.out.println(x[1]);
 		
 		
 	}
