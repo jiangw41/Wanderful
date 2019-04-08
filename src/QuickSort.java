@@ -133,8 +133,11 @@ public class QuickSort {
 		System.out.println(x[6]); 
 		System.out.println(x[7]); 
 		System.out.println(x[8]);
+<<<<<<< HEAD
 		System.out.println(x[9]);
 		System.out.println(x[10]);
+=======
+>>>>>>> 770d515c504828d5640065c7e15e3d6a202e8571
 		
 	}
  
