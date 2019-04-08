@@ -10,13 +10,14 @@ public class Reader {
 	public static Intersection[] Hamilton(int currentMeters){
 		int recommendedMeters = 9000;
 		int reqMeters = recommendedMeters - currentMeters;
-		Intersection[] intersection = new Intersection[252767];
+		Intersection[] intersection = new Intersection[252766];
 		int i = 0;		// i refers to the ObjectID in dataset
 		
 		try {
-			Scanner input = new Scanner(new File("src/HamiltonGIS.csv"));
+			Scanner input = new Scanner(new File("Wanderful/src/HamiltonGIS.csv"));
+			String current = input.nextLine();
 			while (input.hasNextLine()){
-				String current = input.nextLine();
+				current = input.nextLine(); 
 				String[] list = current.split(",");						// Splits line by comma
 				if (true){	// if longitude and latitude is within the current location's radius
 					intersection[i] = new Intersection(Double.parseDouble(list[3]), Double.parseDouble(list[4]));
