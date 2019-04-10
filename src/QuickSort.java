@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 // code adapted from text book
+=======
+//code adapted from text book
+>>>>>>> 5cd13ee8dfdcb9abe535a2f3194b171fed4d5c79
 import java.util.Random; 
 import java.lang.Math; 
 import java.lang.Double; 
@@ -7,6 +11,10 @@ import java.lang.Double;
 public class QuickSort {
 
     // This class should not be instantiated.
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 5cd13ee8dfdcb9abe535a2f3194b171fed4d5c79
 
     /**
      * Rearranges the array in ascending order, using the natural order.
@@ -18,6 +26,10 @@ public class QuickSort {
         assert isSorted(x);
     }
     
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 5cd13ee8dfdcb9abe535a2f3194b171fed4d5c79
     public static void Random(Intersection[] a) {
     	Random rand = new Random(); 
     	for (int i=0; i<a.length; i++) {
@@ -104,6 +116,10 @@ public class QuickSort {
         a[j] = swap;
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5cd13ee8dfdcb9abe535a2f3194b171fed4d5c79
     public static boolean isSorted(Intersection[] a) {
         return isSorted(a, 0, a.length - 1);
     }
@@ -114,6 +130,10 @@ public class QuickSort {
         return true;
     }
     
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 5cd13ee8dfdcb9abe535a2f3194b171fed4d5c79
     public static void main(String[] args) {
 		Intersection[] x = Reader.Hamilton(9000); 
 		System.out.println(x[0]); 
@@ -123,18 +143,32 @@ public class QuickSort {
 		System.out.println("is sorted: " + QuickSort.isSorted(x)); 
 		System.out.println(x[1]); 
 		System.out.println(x[2]); 
+<<<<<<< HEAD
 		/*
+=======
+>>>>>>> 5cd13ee8dfdcb9abe535a2f3194b171fed4d5c79
 		System.out.println(x[3]); 
 		System.out.println(x[4]); 
 		System.out.println(x[5]); 
 		System.out.println(x[6]); 
 		System.out.println(x[7]); 
 		System.out.println(x[8]);
+<<<<<<< HEAD
 		System.out.println(x[9]);
 		System.out.println(x[10]);
 		*/
 		System.out.println(x[1].distTo(x[2]));
 
 	}
+=======
+<<<<<<< HEAD
+		System.out.println(x[9]);
+		System.out.println(x[10]);
+=======
+>>>>>>> 770d515c504828d5640065c7e15e3d6a202e8571
+		
+	}
+ 
+>>>>>>> 5cd13ee8dfdcb9abe535a2f3194b171fed4d5c79
    
 }
