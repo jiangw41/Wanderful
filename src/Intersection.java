@@ -37,8 +37,4 @@ public class Intersection {
 	public String toString(){
 		return "Latitude: " + this.lat + ", Longitude: " + this.lon;
 	}
-	
-	public boolean less(Intersection w) {
-    	return (this.lat < w.getLatitude()); 
-    }
 }
