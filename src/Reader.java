@@ -1,19 +1,19 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintStream;
+//import java.io.PrintStream;
 import java.util.Scanner;
 
 // Class is used to read data from the HamiltonGIS Dataset
 public class Reader {
 	
-	// Reads dataset
+	// Reads data set
 	public static Intersection[] Hamilton(int currentMeters){
-		int recommendedMeters = 9000;
-		int reqMeters = recommendedMeters - currentMeters;
+		//int recommendedMeters = 9000;
+		//int reqMeters = recommendedMeters - currentMeters;
 		Intersection[] intersection = new Intersection[252766];
 
 		int i = 0;
-		Intersection currentLocation = new Intersection(-79.918862, 43.258470);
+		//Intersection currentLocation = new Intersection(-79.918862, 43.258470);
 		
 		try {
 			Scanner input = new Scanner(new File("src/HamiltonGIS.csv"));

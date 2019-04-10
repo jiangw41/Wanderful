@@ -3,8 +3,8 @@
 //code adapted from text book
 
 import java.util.Random; 
-import java.lang.Math; 
-import java.lang.Double; 
+//import java.lang.Math; 
+//import java.lang.Double; 
 
 public class QuickSort {
 
