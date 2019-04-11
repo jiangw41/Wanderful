@@ -117,14 +117,14 @@ public class QuickSort {
     }
     
     public static void main(String[] args) {
-		Intersection[] x = Reader.Hamilton(9000); 
-		System.out.println(x[0]); 
-		System.out.println(x[x.length-1]); 
+		Intersection[] x = Reader.Hamilton(252767); 
+		//System.out.println(x[0]); 
+		//System.out.println(x[x.length-1]); 
 		System.out.println("is sorted: " + QuickSort.isSorted(x)); 
 		QuickSort.sort(x); 
 		System.out.println("is sorted: " + QuickSort.isSorted(x)); 
-		System.out.println(x[1]); 
-		System.out.println(x[2]); 
+		//System.out.println(x[1]); 
+		//System.out.println(x[2]); 
 		/*
 		System.out.println(x[3]); 
 		System.out.println(x[4]); 
@@ -135,7 +135,7 @@ public class QuickSort {
 		System.out.println(x[9]);
 		System.out.println(x[10]);
 		*/
-		System.out.println(x[1].distTo(x[2]));
+		//System.out.println(x[1].distTo(x[2]));
 	}
    
 }

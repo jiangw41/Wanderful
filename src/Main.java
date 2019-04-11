@@ -1,21 +1,18 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+import java.awt.Font;
 //import java.awt.BorderLayout;
 //import java.awt.event.ActionEvent;
 //import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
-//import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
-
-
+import javax.swing.JTextField;
 
 public class Main {
 
@@ -31,7 +28,9 @@ public class Main {
 			Scanner streetNames = new Scanner(new File("src/Streets.csv"));
 				while (streetNames.hasNextLine()){
 					String current = streetNames.nextLine();
-					streets_name.add(current);
+					if (!(current.contentEquals("﻿FULL_STREET_NAME"))) {
+						streets_name.add(current);
+					}
 					//System.out.println(current);
 				}
 				streetNames.close();
@@ -45,6 +44,7 @@ public class Main {
 	}
 
 	public static void JFrame(){
+		final Font font,font2,font3;
 		JFrame frame = new JFrame("Wanderful Application");
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,86 +52,41 @@ public class Main {
 	    frame.setLocation(430, 100);
 	    
 	    JPanel panel = new JPanel();
-
 	    frame.add(panel);
 
 	    JLabel lbl = new JLabel("Choose your street");
-	    lbl.setVisible(true);
-	    
-	    panel.add(lbl);
-
 	    List<String> choices = streets();
 	    
-	    /*
-	    for (int i = 1; i < choices.size(); i++) {
-			System.out.println(choices.get(i));
-		}
-	    */
-	    final JComboBox<String> cb = new JComboBox<String>(choices.toArray(new String[0]));
-
-	    cb.setVisible(true);
-	    panel.add(cb);
-
-	    final JComboBox<String> d = new JComboBox<String>(choices.toArray(new String[0]));
-
-	    cb.setVisible(true);
-	    panel.add(d);
-
+	    JComboBox<String> cb = new JComboBox<String>(choices.toArray(new String[0]));
+	    JComboBox<String> cb2 = new JComboBox<String>(choices.toArray(new String[0]));
+	    
+	    JTextField StreetNum = new JTextField(10);
+	    
 	    JButton btn = new JButton("OK");
-	    panel.add(btn);
+	    
+	    lbl.setVisible(true);
+	    cb.setVisible(true);
+	    cb2.setVisible(true);
+	    btn.setVisible(true);
+	    
+	    panel.add(lbl);
+	    panel.add(cb);	    
+	    panel.add(cb2);	    
+	    //panel.add(btn);
+	    panel.add(StreetNum);
 
+        font = new Font("TimesRoman", Font.BOLD, 30);
+        font2 = new Font("Verdana", Font.PLAIN, 20);
+        font3 = new Font("Verdana", Font.PLAIN, 20);
+	    lbl.setFont(font);
+	    cb.setFont(font2);
+	    cb2.setFont(font2);
+	    btn.setFont(font3);
+	    StreetNum.setFont(font3);
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		//Intersection[] x = Reader.Hamilton();
-		//System.out.println(x[1]);
-		
-		// Run QuickSort to print sorted elements
-		
-		//Intersection[] x = Reader.Hamilton();
-		//System.out.println(x[1]);
-		
-		JFrame frame = new JFrame("Wanderful Application");
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(500, 500);
-	    frame.setLocation(430, 100);
-	    
-	    JPanel panel = new JPanel();
-
-	    frame.add(panel);
-
-	    JLabel lbl = new JLabel("Choose your street");
-	    lbl.setVisible(true);
-	    
-	    panel.add(lbl);
-
-	    List<String> choices = streets();
-	    
-	    for (int i = 1; i < choices.size(); i++) {
-			System.out.println(choices.get(i));
-		}
-	    
-	    final JComboBox<String> cb = new JComboBox<String>(choices.toArray(new String[0]));
-
-	    cb.setVisible(true);
-	    panel.add(cb);
-
-	    JButton btn = new JButton("OK");
-	    panel.add(btn);
-
-	    
-				
-		//Intersection[] x = Reader.Hamilton();
-		//System.out.println(x[1]);
-		
-		// Run QuickSort to print sorted elements
-		
+	public static void main(String[] args) {			
 		JFrame();
 		userInput();
-
 	}
-
 }
