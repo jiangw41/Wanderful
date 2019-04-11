@@ -2,17 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.awt.Font;
-//import java.awt.BorderLayout;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+
+import javax.swing.*;
+
 
 public class Main {
 
@@ -44,44 +38,37 @@ public class Main {
 	}
 
 	public static void JFrame(){
-		final Font font,font2,font3;
+		final Font font,font2;
 		JFrame frame = new JFrame("Wanderful Application");
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(500, 500);
+		frame.setSize(700, 300);
 	    frame.setLocation(430, 100);
+
 	    
 	    JPanel panel = new JPanel();
 	    frame.add(panel);
-
-	    JLabel lbl = new JLabel("Choose your street");
+	    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+	    JLabel lbl = new JLabel("Choose your street", SwingConstants.CENTER);
+	    JLabel lbl2 = new JLabel("Choose your street Number.", SwingConstants.CENTER);
+	    
 	    List<String> choices = streets();
-	    
 	    JComboBox<String> cb = new JComboBox<String>(choices.toArray(new String[0]));
-	    JComboBox<String> cb2 = new JComboBox<String>(choices.toArray(new String[0]));
-	    
 	    JTextField StreetNum = new JTextField(10);
-	    
 	    JButton btn = new JButton("OK");
 	    
-	    lbl.setVisible(true);
-	    cb.setVisible(true);
-	    cb2.setVisible(true);
-	    btn.setVisible(true);
-	    
 	    panel.add(lbl);
-	    panel.add(cb);	    
-	    panel.add(cb2);	    
+	    panel.add(cb);	        
 	    //panel.add(btn);
+	    panel.add(lbl2);
 	    panel.add(StreetNum);
 
         font = new Font("TimesRoman", Font.BOLD, 30);
         font2 = new Font("Verdana", Font.PLAIN, 20);
-        font3 = new Font("Verdana", Font.PLAIN, 20);
 	    lbl.setFont(font);
 	    cb.setFont(font2);
-	    cb2.setFont(font2);
-	    btn.setFont(font3);
+	    btn.setFont(font2);
+	    lbl2.setFont(font);
 	    StreetNum.setFont(font3);
 	}
 
