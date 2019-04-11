@@ -6,11 +6,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.NumberFormat;
 
 import javax.swing.*;
 
 
 public class Main {
+
+	private static Object amountFormat;
 
 	public static void userInput(){
 		//Scanner in = new Scanner(System.in);
@@ -45,7 +48,7 @@ public class Main {
 		JFrame frame = new JFrame("Wanderful Application");
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(700, 360);
+		frame.setSize(700, 400);
 	    frame.setLocation(0, 0);
 
 	    
@@ -56,6 +59,9 @@ public class Main {
 	    JLabel lbl2 = new JLabel("Choose Your Street Number", SwingConstants.CENTER);
 	    JLabel lbl3 = new JLabel("Enter Distance Goal(m)", SwingConstants.CENTER);
 	    JLabel lbl4 = new JLabel("Distance Walked Today(m)", SwingConstants.CENTER);
+	    
+	    //NumberFormat amountFormat = NumberFormat.getNumberInstance();	    
+	    //JFormattedTextField amountField = new JFormattedTextField(amountFormat);
 	    
 	    List<String> choices = streets();
 	    JComboBox<String> cb = new JComboBox<String>(choices.toArray(new String[0]));
@@ -82,6 +88,7 @@ public class Main {
 	    panel.add(lbl4);
 	    panel.add(StepWalked);
 	    panel.add(btn);
+	    //panel.add(amountField);
 	    
 	    TitleFont = new Font("TimesRoman", Font.BOLD, 30);
 	    TextFont = new Font("Verdana", Font.PLAIN, 20);
