@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.awt.Component;
-import java.awt.Font;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 
@@ -44,8 +45,8 @@ public class Main {
 		JFrame frame = new JFrame("Wanderful Application");
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(700, 330);
-	    frame.setLocation(430, 100);
+		frame.setSize(700, 360);
+	    frame.setLocation(0, 0);
 
 	    
 	    JPanel panel = new JPanel();
@@ -62,17 +63,23 @@ public class Main {
 	    JTextField StepGoal = new JTextField(10);
 	    JTextField StepWalked = new JTextField(10);
 	    JButton btn = new JButton("OK");
+	    btn.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		String value = (String)cb.getSelectedItem();
+	    		StreetNum.setText(value);
+	    	}
+	    });
 	    
 	    panel.add(lbl);
 	    panel.add(cb);	        
-	    //panel.add(btn);
 	    panel.add(lbl2);
 	    panel.add(StreetNum);
 	    panel.add(lbl3);
 	    panel.add(StepGoal);
 	    panel.add(lbl4);
 	    panel.add(StepWalked);
-
+	    panel.add(btn);
+	    
 	    TitleFont = new Font("TimesRoman", Font.BOLD, 30);
 	    TextFont = new Font("Verdana", Font.PLAIN, 20);
 	    lbl.setFont(TitleFont);
