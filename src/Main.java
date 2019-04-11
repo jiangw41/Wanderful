@@ -66,7 +66,7 @@ public class Main {
 	    
 	    btn.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    		String value = (String)cb.getSelectedItem();
+	    		String StreetNameValue = (String)cb.getSelectedItem();
 	    		String StreetNumValue = StreetNum.getText();
 	    		String StepGoalValue = StepGoal.getText();
 	    		String StepWalkedValue = StepWalked.getText();
