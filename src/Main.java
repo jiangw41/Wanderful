@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.awt.Component;
 import java.awt.Font;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,6 +39,7 @@ public class Main {
 	}
 
 	public static void JFrame(){
+
 		final Font TitleFont,TextFont;
 		JFrame frame = new JFrame("Wanderful Application");
 		frame.setVisible(true);
@@ -49,10 +51,10 @@ public class Main {
 	    JPanel panel = new JPanel();
 	    frame.add(panel);
 	    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-	    JLabel lbl = new JLabel("Choose your street", SwingConstants.CENTER);
-	    JLabel lbl2 = new JLabel("Choose your street Number", SwingConstants.CENTER);
-	    JLabel lbl3 = new JLabel("Enter Step Goal", SwingConstants.CENTER);
-	    JLabel lbl4 = new JLabel("Step walked today", SwingConstants.CENTER);
+	    JLabel lbl = new JLabel("Choose Your Street", SwingConstants.CENTER);
+	    JLabel lbl2 = new JLabel("Choose Your Street Number", SwingConstants.CENTER);
+	    JLabel lbl3 = new JLabel("Enter Distance Goal(m)", SwingConstants.CENTER);
+	    JLabel lbl4 = new JLabel("Distance Walked Today(m)", SwingConstants.CENTER);
 	    
 	    List<String> choices = streets();
 	    JComboBox<String> cb = new JComboBox<String>(choices.toArray(new String[0]));
@@ -82,6 +84,7 @@ public class Main {
 	    StreetNum.setFont(TextFont);
 	    StepGoal.setFont(TextFont);
 	    StepWalked.setFont(TextFont);
+	    
 	}
 
 	public static void main(String[] args) {			
