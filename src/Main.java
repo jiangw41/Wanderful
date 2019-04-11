@@ -38,7 +38,7 @@ public class Main {
 	}
 
 	public static void JFrame(){
-		final Font font,font2;
+		final Font TitleFont,TextFont;
 		JFrame frame = new JFrame("Wanderful Application");
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,13 +63,13 @@ public class Main {
 	    panel.add(lbl2);
 	    panel.add(StreetNum);
 
-        font = new Font("TimesRoman", Font.BOLD, 30);
-        font2 = new Font("Verdana", Font.PLAIN, 20);
-	    lbl.setFont(font);
-	    cb.setFont(font2);
-	    btn.setFont(font2);
-	    lbl2.setFont(font);
-	    StreetNum.setFont(font3);
+	    TitleFont = new Font("TimesRoman", Font.BOLD, 30);
+	    TextFont = new Font("Verdana", Font.PLAIN, 20);
+	    lbl.setFont(TitleFont);
+	    cb.setFont(TextFont);
+	    btn.setFont(TextFont);
+	    lbl2.setFont(TitleFont);
+	    StreetNum.setFont(TextFont);
 	}
 
 	public static void main(String[] args) {			
