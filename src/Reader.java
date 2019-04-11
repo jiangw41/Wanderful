@@ -1,6 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.Scanner;
 
 // Class is used to read data from the HamiltonGIS Dataset

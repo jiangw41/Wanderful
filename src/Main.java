@@ -6,15 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.text.NumberFormat;
 
 import javax.swing.*;
 
 
 public class Main {
-
-	private static Object amountFormat;
-
 	public static void userInput(){
 		//Scanner in = new Scanner(System.in);
 		//System.out.print("Enter number of steps: ");
@@ -82,11 +78,10 @@ public class Main {
 	    		System.out.println(StepWalkedValue);
 	    	}
 	    });
-	    
+	    panel.add(lbl2);
+	    panel.add(StreetNum);	    
 	    panel.add(lbl);
 	    panel.add(cb);	        
-	    panel.add(lbl2);
-	    panel.add(StreetNum);
 	    panel.add(lbl3);
 	    panel.add(StepGoal);
 	    panel.add(lbl4);
