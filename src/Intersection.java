@@ -30,11 +30,14 @@ public class Intersection {
 		return d * 1000; // meters
 	}
 	
-	public boolean less(Intersection w) {
-    	return (this.lat < w.getLatitude()); 
+	public boolean less(Intersection w, String latOrlon) {
+		if (latOrlon == "lat") return (this.lat < w.getLatitude()); 
+		else return (this.lon < w.getLongitude()); 
     }
 	
 	public String toString(){
 		return "Latitude: " + this.lat + ", Longitude: " + this.lon;
 	}
+	
+	
 }
