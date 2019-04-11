@@ -70,6 +70,10 @@ public class Main {
 	    		String StreetNumValue = StreetNum.getText();
 	    		String StepGoalValue = StepGoal.getText();
 	    		String StepWalkedValue = StepWalked.getText();
+	    		System.out.println(StreetNameValue);
+	    		System.out.println(StreetNumValue);
+	    		System.out.println(StepGoalValue);
+	    		System.out.println(StepWalkedValue);
 	    	}
 	    });
 	    
@@ -100,5 +104,6 @@ public class Main {
 	public static void main(String[] args) {			
 		JFrame();
 		userInput();
+	    System.out.println();
 	}
 }
