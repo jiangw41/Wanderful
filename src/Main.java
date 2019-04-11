@@ -63,10 +63,13 @@ public class Main {
 	    JTextField StepGoal = new JTextField(10);
 	    JTextField StepWalked = new JTextField(10);
 	    JButton btn = new JButton("OK");
+	    
 	    btn.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		String value = (String)cb.getSelectedItem();
-	    		StreetNum.setText(value);
+	    		String StreetNumValue = StreetNum.getText();
+	    		String StepGoalValue = StepGoal.getText();
+	    		String StepWalkedValue = StepWalked.getText();
 	    	}
 	    });
 	    
