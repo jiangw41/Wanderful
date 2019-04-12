@@ -31,9 +31,9 @@ public class Reader {
 				String[] list = current.split(","); // Splits line by comma
 
 				// New Intersection containing Street Number, Street Name, Latitude, Longitude
-				intersection[i] = new Intersection(parseStrNum(list[5]), list[7], Double.parseDouble(list[3]),
-						Double.parseDouble(list[4]));
-				i++;
+				intersection[i] = new Intersection(parseStrNum(list[5]), list[7], Double.parseDouble(list[4]),
+						Double.parseDouble(list[3]));
+				          i++;
 				// if (true){ // if currentlocation to points in dataset is within reqMeters
 				// i++; // saves this as intersection[i] and looks for next one
 				// }
