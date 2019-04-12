@@ -25,11 +25,11 @@ public class NearbyPoints {
 		for (int i = 0; i < 30; i++) {
 			temp[i] = arr[start + i];
 		}
-		
-		QuickSort.sort(temp, "lon"); 
-	    index = binarySearch(temp, 0, temp.length, Point, "lon");
-	    
-	    Intersection[] temp1;
+
+		QuickSort.sort(temp, "lon");
+		index = binarySearch(temp, 0, temp.length, Point, "lon");
+
+		Intersection[] temp1;
 		temp1 = new Intersection[3];
 		if (index <= 1) {
 			start = 0;
@@ -48,7 +48,7 @@ public class NearbyPoints {
 		}
 
 		nearbyPoints = temp1;
-		
+
 	}
 
 	// this method take an array, its left and right index, and a search point
@@ -96,7 +96,7 @@ public class NearbyPoints {
 	}
 
 	public static void main(String[] args) {
-		Intersection[] x = Reader.Hamilton(9000);
+		Intersection[] x = Reader.Hamilton();
 		System.out.println(x[0]);
 		System.out.println(x[x.length - 1]);
 		System.out.println("is sorted: " + QuickSort.isSorted(x, "lat"));
