@@ -1,23 +1,46 @@
 
 public class Intersection {
 	
-	private final double lon;
-	private final double lat;
+	// Private Variables for a 
+	private String num;
+	private String str;
+	private double lat;
+	private double lon;
 	
-	Intersection(double longitude, double latitude){
-		this.lon = longitude;
+	// Empty Intersection - To be updated
+	Intersection(){
+		this.num = "";
+		this.str = "";
+		this.lon = 0;
+		this.lat = 0;
+	}
+	
+	// Intersection Object with Street Number, Street Name, and it's Latitude, Longitude coordinates
+	Intersection(String num, String street, double latitude, double longitude){
+		this.num = num;
+		this.str = street;
 		this.lat = latitude;
+		this.lon = longitude;
 	}
 	
-	public double getLongitude(){
-		return this.lon;
-	}
-	
+	// Return Latitude coordinate
 	public double getLatitude(){
 		return this.lat;
 	}
 	
-	// Distance between two points to meters
+	// Return Longitude coordinate
+	public double getLongitude(){
+		return this.lon;
+	}
+	
+	// Function to update Street Number, Latitude and Longitude coordinates
+	public void update(String n, Double latitude, Double longitude){
+		this.num = n;
+		this.lat = latitude;
+		this.lon = longitude;
+	}
+
+	// Distance between two points using Lat/Lon coordinates to meters 
 	public double distTo(Intersection x){
 		double R = 6378.137; // Radius of earth in KM
 		double dLat = Math.abs(this.lat * Math.PI / 180 - x.lat * Math.PI / 180);
@@ -30,13 +53,20 @@ public class Intersection {
 		return d * 1000; // meters
 	}
 	
+<<<<<<< HEAD
 	public boolean less(Intersection w, String latOrlon) {
 		if (latOrlon == "lat") return (this.lat < w.getLatitude()); 
 		else return (this.lon < w.getLongitude()); 
+=======
+	// Checks if point has a smaller Latitude than another point
+	public boolean less(Intersection w) {
+    	return (this.lat < w.getLatitude()); 
+>>>>>>> ba0caebb8b77d8532a2d7123d0c7e03c480ea4f8
     }
 	
+	// Print formatting
 	public String toString(){
-		return "Latitude: " + this.lat + ", Longitude: " + this.lon;
+		return this.num + " " + this.str + " " + this.lat + ", " + this.lon;
 	}
 	
 	
