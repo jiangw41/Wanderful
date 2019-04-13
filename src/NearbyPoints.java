@@ -102,16 +102,9 @@ public class NearbyPoints {
 		System.out.println("is sorted: " + QuickSort.isSorted(x, "lat"));
 		QuickSort.sort(x, "lat");
 		System.out.println("is sorted: " + QuickSort.isSorted(x, "lat"));
-		System.out.println(x[1]);
-		System.out.println(x[2]);
-		System.out.println(x[3]);
-		System.out.println(x[4]);
-		System.out.println(x[5]);
-		System.out.println(x[6]);
-		System.out.println(x[7]);
-		System.out.println(x[8]);
-		System.out.println(x[9]);
-		System.out.println(x[10]);
+		for (int i = 1; i <=10; i++) {
+			System.out.println(x[i]);
+		}
 		NearbyPoints NP = new NearbyPoints(x[515], x);
 		Intersection[] y = NP.getPoints();
 		System.out.println(y.length);
