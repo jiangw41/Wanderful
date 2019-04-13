@@ -15,7 +15,7 @@ public class NearbyPoints {
 		}
 
 		else {
-			if (index + 15 > arr.length) {
+			if (index + 15 > arr.length-1) {
 				start = arr.length - 29;
 			} else {
 				start = index - 14;
@@ -36,8 +36,8 @@ public class NearbyPoints {
 		}
 
 		else {
-			if (index + 1 > temp.length) {
-				start = arr.length - 2;
+			if (index + 1 > temp.length-1) {
+				start = temp.length - 3;
 			} else {
 				start = index - 1;
 			}
@@ -112,13 +112,17 @@ public class NearbyPoints {
 		System.out.println(x[8]);
 		System.out.println(x[9]);
 		System.out.println(x[10]);
-		NearbyPoints NP = new NearbyPoints(x[50], x);
+		NearbyPoints NP = new NearbyPoints(x[515], x);
 		Intersection[] y = NP.getPoints();
 		System.out.println(y.length);
 		System.out.println("is sorted: " + QuickSort.isSorted(y, "lon"));
-		System.out.println(x[50].distTo(y[0]));
-		System.out.println(x[50].distTo(y[1]));
-		System.out.println(x[50].distTo(y[2]));
+		System.out.println(x[515].distTo(y[0]));
+		System.out.println(x[515].distTo(y[1]));
+		System.out.println(x[515].distTo(y[2]));
+		System.out.println(x[515]);
+		System.out.println(y[0]);
+		System.out.println(y[1]);
+		System.out.println(y[2]);
 		/*
 		 * Intersection Testpoint1 = new Intersection( -79.75381256366813, 43.22605829);
 		 * 
