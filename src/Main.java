@@ -42,7 +42,9 @@ public class Main {
 
 		final Font TitleFont,TextFont;
 		JFrame frame = new JFrame("Wanderful Application");
+		JFrame frame1 = new JFrame("Wanderful Application");
 		frame.setVisible(true);
+		frame1.setVisible(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(700, 400);
 	    frame.setLocation(0, 0);
@@ -64,7 +66,8 @@ public class Main {
 	    JTextField StreetNum = new JTextField(10);
 	    JTextField StepGoal = new JTextField(10);
 	    JTextField StepWalked = new JTextField(10);
-	    JButton btn = new JButton("OK");
+	    JButton btn = new JButton("NEXT");
+	    
 	    
 	    btn.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
@@ -72,12 +75,20 @@ public class Main {
 	    		String StreetNumValue = StreetNum.getText();
 	    		String StepGoalValue = StepGoal.getText();
 	    		String StepWalkedValue = StepWalked.getText();
+	    		
 	    		System.out.println(StreetNameValue);
 	    		System.out.println(StreetNumValue);
 	    		System.out.println(StepGoalValue);
 	    		System.out.println(StepWalkedValue);
+	    		//close current frame, open new one
+	    		frame.setVisible(false);
+	    		frame1.setVisible(true);
+	    		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    		frame1.setSize(700, 400);
+	    	    frame1.setLocation(0, 0);
 	    	}
 	    });
+	   
 	    panel.add(lbl2);
 	    panel.add(StreetNum);	    
 	    panel.add(lbl);
