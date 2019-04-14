@@ -19,7 +19,6 @@ public class Paths {
 		for (int i = 0; i < 3; i++) {
 			ArrayList<Intersection> temp = new ArrayList<Intersection>(); 
 			temp = PI.getPath(); 
-			System.out.println(temp.size()); 
 			if (!temp.contains(points[i])) {
 				temp.add(points[i]); 
 			    double total = PI.getDistance() + points[i].distTo(PI.getPoint()); 
@@ -56,7 +55,8 @@ public class Paths {
 		System.out.println(x[564]);
 		Paths paths = new Paths(x[564], x, 2000);
         
-		System.out.println(paths.getSize());
+		System.out.println("number of paths  " + paths.getSize());
+		System.out.println("show paths:"); 
 		paths.showPaths();
 
 		/*
