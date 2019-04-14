@@ -3,8 +3,6 @@
 //code adapted from text book
 
 import java.util.Random;
-import java.lang.Math; 
-import java.lang.Double; 
 
 
 // Class used to perform a QuickSort on an Intersection[]
