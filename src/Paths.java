@@ -1,98 +1,58 @@
 import java.util.ArrayList;
 
+// Creates 2 Lists of Points from an initial point to a point that meets the user's distance goal
 public class Paths {
 	
-	// Choices refers to going from one Point to another Point
-	
+	// The 2 Choices holds a list of points (List of directions) going from one Point to another Point
 	private ArrayList<Intersection> Choices;
 	private ArrayList<Intersection> Choices2;
     
 	// Paths constructor using an initial Point
 	public Paths(Intersection point, Intersection[] arr, double distanceGoal) {
-		ArrayList<Intersection> choices = new ArrayList<Intersection>();				// New List of Points
-		choices.add(point);																// Add initial Point
-		ArrayList<Intersection> choices2 = new ArrayList<Intersection>();				// New List of Points
-		choices2.add(point);	
+		// Add the starting point to both Lists
+		ArrayList<Intersection> choices = new ArrayList<Intersection>();
+		choices.add(point);
+		ArrayList<Intersection> choices2 = new ArrayList<Intersection>();
+		choices2.add(point);
 		
-		// New PointInfo with initial point, accumulated distance and paths
-		PointInfo PI = new PointInfo(point, 0.0, choices);	
-		PointInfo PI2 = new PointInfo(point, 0.0, choices2);	
+		// New PointInfo with starting point, accumulated distance and a list of points
+		PointInfo PI = new PointInfo(point, choices, 0.0);	
+		PointInfo PI2 = new PointInfo(point, choices2, 0.0);	
 		
-		// List of Intersections
-		ArrayList<Intersection> Choices = new ArrayList<Intersection>(); 
-		ArrayList<Intersection> Choices2 = new ArrayList<Intersection>(); 
-		
-		// calls paths method below with the PointInfo, dataset, distanceGoal and 
-		// List of List of routes [ [A -> B -> C], [A -> B -> D] ]
-		paths(PI, arr, distanceGoal, 0);
-		//this.Path = Path; 
+		// Calls paths method below with the Choice List (0 for Route 1, 1 for Route 2), PointInfo, dataset,
+		// distanceGoal and a number referring to the two points the current point is closest to
+		// Goes solely to the 1st point in the NearbyPoints list
+		paths(choices, PI, arr, distanceGoal, 0);
 		this.Choices = choices;
 		System.out.println("Choices: " + this.Choices);
-		System.out.println("next");
-		paths(PI2, arr, distanceGoal, 2);
+		// Goes solely to the 2nd point in the NearbyPoints list
+		paths(choices2, PI2, arr, distanceGoal, 1);
 		this.Choices2 = choices2;
 		System.out.println("Choices2: " + this.Choices2);
 
 	}
 
-	// paths method using PointInfo containing current point and choices, dataset array, distGoal, Path
-	public void paths(PointInfo PI, Intersection[] arr, double distanceGoal, int i) {
+	// paths method given a list of points to update recursively, PointInfo containing current point and choices, 
+	// dataset array, distance Goal and a number referring to the two points the current point is closest to
+	public void paths(ArrayList<Intersection> choices, PointInfo PI, Intersection[] arr, double distanceGoal, int i) {
 		
-		// NearbyPoints method with initial point, dataset
+		// NearbyPoints method with initial point and dataset to generate a list holding two nearby points
 		NearbyPoints Points = new NearbyPoints(PI.getPoint(), arr); 
 		
-		// List of points containing "the 3 closest points"
+		// Holds onto list of points containing 2 nearby points from the NearbyPoints method above
 		Intersection[] points = Points.getPoints(); 
 		
-		// List of points temp
-		ArrayList<Intersection> choices = new ArrayList<Intersection>(); 
-		// Gets the "2 closest points" / choices we can make from the initial point
-		choices = PI.getChoices(); 
+		// Add the initial point to the choices
+		choices.add(points[i]); 
 		
-		// If the choices does not contain the initial point
-		if (!choices.contains(points[i])) {
-			// Add the initial point to the choices
-			choices.add(points[i]); 
-		    //System.out.println(choices);
-			// Get distance so far + distance to "2 closest points"
-		    double totalDistance = PI.getDistance() + PI.getPoint().distTo(points[i]); 
-		    
-		    // If total distance exceeds our goal, add the choice to Path
-		    if (totalDistance < distanceGoal) {
-			    PointInfo newPI = new PointInfo(points[i], totalDistance, choices); 
-			    paths(newPI, arr, distanceGoal, i); 
-		    }
-		}
-	}	
-	
-	// paths method using PointInfo containing current point and choices, dataset array, distGoal, Path
-	public void paths2(PointInfo PI, Intersection[] arr, double distanceGoal, int i) {
-		
-		// NearbyPoints method with initial point, dataset
-		NearbyPoints Points = new NearbyPoints(PI.getPoint(), arr); 
-		
-		// List of points containing "the 3 closest points"
-		Intersection[] points = Points.getPoints(); 
-		
-		// List of points temp
-		ArrayList<Intersection> choices2 = new ArrayList<Intersection>(); 
-		// Gets the "2 closest points" / choices we can make from the initial point
-		choices2 = PI.getChoices();
-
-		// If the choices does not contain the initial point
-		if (!choices2.contains(points[i])) {
-			// Add the initial point to the choices
-			choices2.add(points[i]); 
-			//System.out.println(choices2);
-			// Get distance so far + distance to "2 closest points"
-		    double totalDistance = PI.getDistance() + PI.getPoint().distTo(points[i]); 
-		    
-		    // If total distance exceeds our goal, add the choice to Path
-		    if (totalDistance < distanceGoal) {
-			    PointInfo newPI = new PointInfo(points[i], totalDistance, choices2); 
-			    paths2(newPI, arr, distanceGoal, i); 
-		    } 
-		}
+		// Get accumulated distance with the distance so far + distance to next point
+	    double totalDistance = PI.getDistance() + PI.getPoint().distTo(points[i]); 
+	    
+	    // If total distance does not exceed our goal, repeat for the next point
+	    if (totalDistance < distanceGoal) {
+		    PointInfo newPI = new PointInfo(points[i], choices, totalDistance); 
+		    paths(choices, newPI, arr, distanceGoal, i); 
+	    }
 	}	
 
 	// Show all the number of choices we have
@@ -102,15 +62,6 @@ public class Paths {
 	// Show all the number of choices we have
 	public ArrayList<Intersection> getChoices2() {
 		return this.Choices2;
-	}
-
-	public static void main(String[] args) {
-		Intersection[] x = Reader.Hamilton();
-		QuickSort.sort(x, "lat");
-		System.out.println(x[564]);
-		System.out.println(" ");
-		Paths paths = new Paths(x[564], x, 2000);
-        
 	}
 
 }

@@ -1,34 +1,24 @@
 import java.util.ArrayList;
 
-// PointInfo Class 
+// PointInfo Class holding an initial point, List of points so far and the accumulated distance
 public class PointInfo {
 	private Intersection point; 
 	private ArrayList<Intersection> choices; 
 	private double totalDistance; 
 	
-	// The current point and its distance thus far and possible paths 
-	public PointInfo(Intersection point, double totalDistance, ArrayList<Intersection> choices) {
+	//  PointInfo Class holding an initial point, List of points so far and the accumulated distance
+	public PointInfo(Intersection point, ArrayList<Intersection> choices, double totalDistance) {
 		this.point = point; 
 		this.choices = choices; 
 		this.totalDistance = totalDistance; 
 	}
 	
-	public void addDistance(double distance) {
-		this.totalDistance += distance; 
-	}
-	
-	public void addChoices(Intersection point) {
-		this.choices.add(point); 
-	}
-	
+	// Returns the initial point in the PointInfo class
 	public Intersection getPoint() {
 		return point; 
 	}
-	
-	public ArrayList<Intersection> getChoices() {
-		return choices; 
-	}
-	
+
+	// Returns the accumulated distance
 	public double getDistance() {
 		return totalDistance; 
 	}
