@@ -31,14 +31,14 @@ public class Paths {
 		paths(PI, arr, distanceGoal, Path, 0);
 		this.Path = Path; 
 		this.Choices = choices;
-		System.out.println("Choices: " + choices);
+		System.out.println("Choices: " + this.Choices);
 		choices.clear();
 		choices.add(point);
 		System.out.println("next");
 		paths(PI, arr, distanceGoal, Path2, 2);
 		this.Path2 = Path2;
 		this.Choices2 = choices;
-		System.out.println("Choices2: " + choices);
+		System.out.println("Choices2: " + this.Choices2);
 
 	}
 
