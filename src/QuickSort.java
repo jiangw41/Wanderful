@@ -6,7 +6,6 @@ public class QuickSort {
 
 	/**
 	 * Rearranges the array in ascending order, using the natural order.
-	 * 
 	 * @param a the array to be sorted
 	 */
 	public static void sort(Intersection[] x, String latOrlon) {
@@ -72,14 +71,15 @@ public class QuickSort {
 	private static boolean isSorted(Intersection[] a, int lo, int hi, String latOrlon) {
 		for (int i = lo + 1; i <= hi; i++) {
 			if (a[i].less(a[i - 1], latOrlon))
-				return false;}
+				return false;
+		}
 		return true;
 	}
     
     // Randomizes Intersections in an Intersection[]
     public static void Random(Intersection[] a) {
     	Random rand = new Random(); 
-    	for (int i=0; i<a.length; i++) {
+    	for (int i = 0; i < a.length; i++) {
     		int n = rand.nextInt(a.length); 
     		Intersection temp = a[i]; 
     		a[i]= a[n]; 
@@ -93,9 +93,5 @@ public class QuickSort {
         a[i] = a[j];
         a[j] = swap;
     }
-
+    
 }
-
-   
-
-
