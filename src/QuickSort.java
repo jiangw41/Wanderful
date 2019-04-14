@@ -62,12 +62,12 @@ public class QuickSort {
 		return j;
 	}
 
-    // Checks if Intersection[] is sorted
+	// Checks if Intersection[] is sorted
 	public static boolean isSorted(Intersection[] a, String latOrlon) {
 		return isSorted(a, 0, a.length - 1, latOrlon);
 	}
 
-    // Checks if Intersection[] is sorted
+	// Checks if Intersection[] is sorted
 	private static boolean isSorted(Intersection[] a, int lo, int hi, String latOrlon) {
 		for (int i = lo + 1; i <= hi; i++) {
 			if (a[i].less(a[i - 1], latOrlon))
@@ -76,7 +76,7 @@ public class QuickSort {
 		return true;
 	}
     
-    // Randomizes Intersections in an Intersection[]
+	// Randomizes Intersections in an Intersection[]
     public static void Random(Intersection[] a) {
     	Random rand = new Random(); 
     	for (int i = 0; i < a.length; i++) {
