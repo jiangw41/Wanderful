@@ -18,8 +18,7 @@ public class Reader {
 		return num;
 	}
 
-	// Reads dataset and returns an Intersection[] of Intersections within User's
-	// Goal
+	// Reads dataset and returns an Intersection[] of all the Intersections(Points) in the dataset
 	public static Intersection[] Hamilton() {
 		Intersection[] intersection = new Intersection[252766]; // Intersection[] to hold up to 252766 points
 		int i = 0; // Used to store Intersections into the Intersection[]
@@ -34,16 +33,7 @@ public class Reader {
 				// New Intersection containing Street Number, Street Name, Latitude, Longitude
 				intersection[i] = new Intersection(parseStrNum(list[5]), list[7], Double.parseDouble(list[4]),
 						Double.parseDouble(list[3]));
-				i++;
-				/*
-				if (intersection[i].distTo(user) < goal){ // if currentlocation to points in dataset is within reqMeters
-					i++; // saves this as intersection[i] and looks for next one
-					//System.out.println(intersection[i].distTo(user));
-				}
-				
-				System.out.println(intersection[i].distTo(user));
-				*/
-				 
+				i++;				 
 			}
 			input.close();
 		} catch (FileNotFoundException e) {

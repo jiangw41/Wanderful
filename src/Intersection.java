@@ -1,7 +1,7 @@
 // Intersection class to hold points from Dataset
 public class Intersection {
 
-	// Private Variables for a
+	// Private Variables - Street Number, Street Name, Latitude and Longitude coordinates
 	private String num;
 	private String str;
 	private double lat;
@@ -63,7 +63,6 @@ public class Intersection {
 
 	// Print formatting
 	public String toString() {
-		//return this.num + " " + this.str + " " + this.lat + ", " + this.lon;
 		return this.num + " " + this.str;
 	}
 }
