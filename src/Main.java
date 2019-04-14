@@ -112,17 +112,17 @@ public class Main {
 		JFrame();
 	    System.out.println();
 	    
-	    Intersection x = Reader.currentLocation("1280", "Main Street West");
+	    Intersection x = Reader.currentLocation("299", "Southbrook Drive");
 	    Intersection[] y = Reader.Hamilton();
-		System.out.println(y[10].distTo(x));
+		//System.out.println(y[10].distTo(x));
 
 		QuickSort.sort(y, "lat");
 		System.out.println(x);
 		Paths paths = new Paths(x, y, 2000);
         
 		//System.out.println(paths.getSize());
-	
-		System.out.println(paths.getPaths());	//Shows list of all the points
+		System.out.println(paths.getChoices());
+		System.out.println(paths.getChoices2());	//Shows list of all the points
 	    
 	    //System.out.println(x.distTo(y[20]));
 	}
