@@ -1,50 +1,35 @@
 import java.util.ArrayList;
 
+// PointInfo Class 
 public class PointInfo {
 	private Intersection point; 
-	private ArrayList<Intersection> path; 
-	private double distance; 
+	private ArrayList<Intersection> choices; 
+	private double totalDistance; 
 	
-	public PointInfo(Intersection point, double distance, ArrayList<Intersection> path) {
+	// The current point and its distance thus far and possible paths 
+	public PointInfo(Intersection point, double totalDistance, ArrayList<Intersection> choices) {
 		this.point = point; 
-		this.path = path; 
-		this.distance = distance; 
+		this.choices = choices; 
+		this.totalDistance = totalDistance; 
 	}
 	
 	public void addDistance(double distance) {
-		this.distance += distance; 
+		this.totalDistance += distance; 
 	}
 	
-	public void addPath(Intersection point) {
-		this.path.add(point); 
+	public void addChoices(Intersection point) {
+		this.choices.add(point); 
 	}
 	
 	public Intersection getPoint() {
 		return point; 
 	}
 	
-	public ArrayList<Intersection> getPath() {
-		return path; 
+	public ArrayList<Intersection> getChoices() {
+		return choices; 
 	}
 	
 	public double getDistance() {
-		return distance; 
-	}
-	
-	public static void main(String[] args) {
-		Intersection[] x = Reader.Hamilton(); 
-		System.out.println(x[0]); 
-		System.out.println(x[1]); 
-		System.out.println(x[2]); 
-		int n = 3; 
-		ArrayList<Intersection> path = new ArrayList<Intersection>(n); 
-		path.add(x[0]); 
-		path.add(x[1]); 
-		path.add(x[2]); 
-		PointInfo PI = new PointInfo(x[0], 2.2, path); 
-		PI.addDistance(1.2);
-		System.out.println(PI.getDistance());
-		PI.addPath(x[3]);
-		System.out.println(PI.getPath()); 
+		return totalDistance; 
 	}
 }

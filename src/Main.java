@@ -118,5 +118,9 @@ public class Main {
 		JFrame();
 		userInput();
 	    System.out.println();
+	    
+	    Intersection x = Reader.currentLocation("1280", "Main Street West");
+	    Intersection[] y = Reader.Hamilton();
+	    System.out.println(x.distTo(y[20]));
 	}
 }

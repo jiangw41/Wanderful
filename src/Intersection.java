@@ -1,4 +1,4 @@
-
+// Intersection class to hold points from Dataset
 public class Intersection {
 
 	// Private Variables for a
@@ -11,8 +11,8 @@ public class Intersection {
 	Intersection() {
 		this.num = "";
 		this.str = "";
-		this.lon = 0;
 		this.lat = 0;
+		this.lon = 0;
 	}
 
 	// Intersection Object with Street Number, Street Name, and it's Latitude,
@@ -63,7 +63,7 @@ public class Intersection {
 
 	// Print formatting
 	public String toString() {
-		return this.num + " " + this.str + " " + this.lat + ", " + this.lon;
+		//return this.num + " " + this.str + " " + this.lat + ", " + this.lon;
+		return this.num + " " + this.str;
 	}
-
 }

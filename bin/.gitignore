@@ -1,9 +1,9 @@
-<<<<<<< HEAD
-/test.class
-/nearbyPoints.class
-/NearbyPoints.class
-=======
+/Intersection.class
 /Main$1.class
->>>>>>> ba0caebb8b77d8532a2d7123d0c7e03c480ea4f8
+/Main.class
+/NearbyPoints.class
 /Paths.class
 /PointInfo.class
+/QuickSort.class
+/Reader.class
+/test.class

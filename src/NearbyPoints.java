@@ -5,42 +5,41 @@ public class NearbyPoints {
 	// takes a point and the data array as inputs and create its nearby points into
 	// an array;
 	public NearbyPoints(Intersection Point, Intersection[] arr) {
-		QuickSort.sort(arr, "lat"); // sort the array based on latitude first
-		int index = binarySearch(arr, 0, arr.length, Point, "lat");
+		QuickSort.sort(arr, "lat"); 									// sort the array based on latitude first
+		int index = binarySearch(arr, 0, arr.length, Point, "lat");		// index of Point in sorted array
 		Intersection[] temp;
 		temp = new Intersection[30];
-		int start;
-		if (index <= 14) {
+		int start;								
+		if (index <= 14) {												// If on lower end
 			start = 0;
 		}
 
 		else {
-			if (index + 15 > arr.length-1) {
-				start = arr.length - 29;
-			} else {
+			if (index + 15 > arr.length-1) {							// If on the upper end
+				start = arr.length - 29;								
+			} else {													
 				start = index - 14;
 			}
 		}
 
-		for (int i = 0; i < 30; i++) {
+		for (int i = 0; i < 30; i++) {									// temp holds 30 closest points
 			temp[i] = arr[start + i];
 		}
 
-		QuickSort.sort(temp, "lon");
-		index = binarySearch(temp, 0, temp.length, Point, "lon");
+		QuickSort.sort(temp, "lon");									// Sorts temp by longitude
+		index = binarySearch(temp, 0, temp.length, Point, "lon");		// Binary search from 0 - 30 to find index
 
-		Intersection[] temp1;
+		Intersection[] temp1;											
 		temp1 = new Intersection[3];
 		if (index <= 1) {
 			start = 0;
 		}
 
+		else if (index + 1 > temp.length-1) {
+			start = temp.length - 3;
+		} 
 		else {
-			if (index + 1 > temp.length-1) {
-				start = temp.length - 3;
-			} else {
-				start = index - 1;
-			}
+			start = index - 1;
 		}
 
 		for (int i = 0; i < 3; i++) {
@@ -93,37 +92,6 @@ public class NearbyPoints {
 
 	public Intersection[] getPoints() {
 		return nearbyPoints;
-	}
-
-	public static void main(String[] args) {
-		Intersection[] x = Reader.Hamilton();
-		System.out.println(x[0]);
-		System.out.println(x[x.length - 1]);
-		System.out.println("is sorted: " + QuickSort.isSorted(x, "lat"));
-		QuickSort.sort(x, "lat");
-		System.out.println("is sorted: " + QuickSort.isSorted(x, "lat"));
-		for (int i = 1; i <=10; i++) {
-			System.out.println(x[i]);
-		}
-		NearbyPoints NP = new NearbyPoints(x[515], x);
-		Intersection[] y = NP.getPoints();
-		System.out.println(y.length);
-		System.out.println("is sorted: " + QuickSort.isSorted(y, "lon"));
-		System.out.println(x[515].distTo(y[0]));
-		System.out.println(x[515].distTo(y[1]));
-		System.out.println(x[515].distTo(y[2]));
-		System.out.println(x[515]);
-		System.out.println(y[0]);
-		System.out.println(y[1]);
-		System.out.println(y[2]);
-		/*
-		 * Intersection Testpoint1 = new Intersection( -79.75381256366813, 43.22605829);
-		 * 
-		 * System.out.println(QuickSort.binarySearch(x, 0, 252766, Testpoint1));
-		 * Intersection Testpoint2 = new Intersection( -79.75381256366813, 43.22615829);
-		 * System.out.println(QuickSort.binarySearch(x, 0, 252766, Testpoint2));
-		 * System.out.println(x[1].distTo(x[2]));
-		 */
 	}
 
 }
