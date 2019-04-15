@@ -32,13 +32,11 @@ public class Main {
 		return null;
 	}
 
-	public static void JFrame(){
+	public static void JFrame(String Choice1, String Choice2){
 
 		final Font TitleFont,TextFont;
 		JFrame frame = new JFrame("Wanderful Application");
-		JFrame frame1 = new JFrame("Wanderful Application");
 		frame.setVisible(true);
-		frame1.setVisible(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(700, 400);
 	    frame.setLocation(0, 0);
@@ -69,17 +67,15 @@ public class Main {
 	    		String StreetNumValue = StreetNum.getText();
 	    		String StepGoalValue = StepGoal.getText();
 	    		String StepWalkedValue = StepWalked.getText();
-	    		
+	    		/*
 	    		System.out.println(StreetNameValue);
 	    		System.out.println(StreetNumValue);
 	    		System.out.println(StepGoalValue);
 	    		System.out.println(StepWalkedValue);
+	    		*/
 	    		//close current frame, open new one
 	    		frame.setVisible(false);
-	    		frame1.setVisible(true);
-	    		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    		frame1.setSize(700, 400);
-	    	    frame1.setLocation(0, 0);
+	    		SecondFrame(Choice1,Choice2);
 	    	}
 	    });
 	   
@@ -107,10 +103,35 @@ public class Main {
 	    StepWalked.setFont(TextFont);
 	    
 	}
+	 
+	public static void SecondFrame(String c1, String c2) {
+		JFrame frame1 = new JFrame("Wanderful Application");
+		frame1.setVisible(true);
+		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame1.setSize(700, 400);
+	    frame1.setLocation(0, 0);
+	    
+	    JPanel panel = new JPanel();
+	    frame1.add(panel);
+	    JTextArea  C1 = new JTextArea ();
+	    JLabel C2 = new JLabel();
+	    JLabel C3 = new JLabel("                                                     ");
+		C1.setText(String.valueOf(c1));
+	    C1.setWrapStyleWord(true);
+		C2.setText(String.valueOf(c2));
+	    panel.add(C1);	     
+	    panel.add(C3);   
+	    panel.add(C2);
+	    
+		final Font TextFont;
+	    TextFont = new Font("Verdana", Font.PLAIN, 20);
+	    C1.setFont(TextFont);
+	    C2.setFont(TextFont);
+	    C3.setFont(TextFont);
+	    
+	}
 
 	public static void main(String[] args) {			
-		JFrame();
-	    System.out.println();
 	    
 	    Intersection x = Reader.currentLocation("299", "Southbrook Drive");
 	    Intersection[] y = Reader.Hamilton();
@@ -119,11 +140,15 @@ public class Main {
 		QuickSort.sort(y, "lat");
 		System.out.println(x);
 		Paths paths = new Paths(x, y, 2000);
-        
-		//System.out.println(paths.getSize());
-		System.out.println(paths.getChoices());
-		System.out.println(paths.getChoices2());	//Shows list of all the points
+		String Choice1 = paths.getChoices().toString();
+		String Choice2 = paths.getChoices2().toString();
+		System.out.println(Choice1);
+		System.out.println(Choice2);	//Shows list of all the points
+		
+		JFrame(Choice1,Choice2);
+	    System.out.println();
 	    
+		//System.out.println(paths.getSize());
 	    //System.out.println(x.distTo(y[20]));
 	}
 }
