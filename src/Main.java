@@ -6,12 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
-
 import javax.swing.*;
 
-
+// Main method to open a Window
 public class Main {
-	
+
+	// Streets method to read a sorted csv file of Street names
 	public static List<String> streets() {
 		try {
 			List<String> streets_name = new ArrayList<String>();
@@ -20,7 +20,6 @@ public class Main {
 				while (streetNames.hasNextLine()){
 					current = streetNames.nextLine();
 					streets_name.add(current);
-					//System.out.println(current);
 				}
 				streetNames.close();
 				return streets_name;
@@ -32,16 +31,27 @@ public class Main {
 		return null;
 	}
 
+<<<<<<< HEAD
 	public static void JFrame(){
 
+=======
+	
+	public static void JFrame(String Choice1, String Choice2){
+>>>>>>> bc10418794c89b50f4cf58caf7d5da50fa2d8f9a
 		final Font TitleFont,TextFont;
+		
+		// Initial Frame requesting for User's Input 
 		JFrame frame = new JFrame("Wanderful Application");
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(700, 400);
 	    frame.setLocation(0, 0);
 
+	    // Next Frame holding output of List of Directions
+		JFrame frame1 = new JFrame("Wanderful Application");
+		frame1.setVisible(false);
 	    
+	    // Labels to request User for Input
 	    JPanel panel = new JPanel();
 	    frame.add(panel);
 	    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -50,9 +60,7 @@ public class Main {
 	    JLabel lbl3 = new JLabel("Enter Distance Goal(m)", SwingConstants.CENTER);
 	    JLabel lbl4 = new JLabel("Distance Walked Today(m)", SwingConstants.CENTER);
 	    
-	    //NumberFormat amountFormat = NumberFormat.getNumberInstance();	    
-	    //JFormattedTextField amountField = new JFormattedTextField(amountFormat);
-	    
+	    // Reads User's Input through Textboxes and Dropbox
 	    List<String> choices = streets();
 	    JComboBox<String> cb = new JComboBox<String>(choices.toArray(new String[0]));
 	    JTextField StreetNum = new JTextField(10);
@@ -60,7 +68,7 @@ public class Main {
 	    JTextField StepWalked = new JTextField(10);
 	    JButton btn = new JButton("NEXT");
 	    
-	    
+	    // When "NEXT" button is clicked
 	    btn.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		String StreetNameValue = (String)cb.getSelectedItem();
@@ -68,11 +76,19 @@ public class Main {
 	    		Integer StepGoalValue = Integer.valueOf(StepGoal.getText());
 	    		Integer StepWalkedValue = Integer.valueOf(StepWalked.getText());
 	    		/*
-	    		System.out.println(StreetNameValue);
-	    		System.out.println(StreetNumValue);
-	    		System.out.println(StepGoalValue);
-	    		System.out.println(StepWalkedValue);
+	    		Intersection user = Reader.currentLocation(StreetNumValue, StreetNameValue);
+	    	    Intersection[] dataset = Reader.Hamilton();
+	    	    
+	    	    QuickSort.sort(dataset, "lat");
+	    		System.out.println(user);
+	    		Double distanceGoal = Double.parseDouble(StepGoalValue) - Double.parseDouble(StepWalkedValue);
+	    		
+	    		Paths paths = new Paths(user, dataset, distanceGoal);
+	    		
+	    		System.out.println(paths.getChoices());
+	    		System.out.println(paths.getChoices2());
 	    		*/
+<<<<<<< HEAD
 	    		Intersection x = Reader.currentLocation(StreetNumValue, StreetNameValue);
 	    	    Intersection[] y = Reader.Hamilton();
 	    		QuickSort.sort(y, "lat");
@@ -80,9 +96,19 @@ public class Main {
 	    		Paths paths = new Paths(x, y, StepGoalValue-StepWalkedValue);
 	    		String Choice1 = paths.getChoices().toString();
 	    		String Choice2 = paths.getChoices2().toString();
+=======
+	    		
+	    		
+>>>>>>> bc10418794c89b50f4cf58caf7d5da50fa2d8f9a
 	    		//close current frame, open new one
 	    		frame.setVisible(false);
 	    		SecondFrame(Choice1,Choice2);
+	    		/*
+	    		frame1.setVisible(true);
+	    		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    		frame1.setSize(700, 400);
+	    	    frame1.setLocation(0, 0);
+	    	    */
 	    	}
 	    });
 	   
@@ -110,7 +136,7 @@ public class Main {
 	    StepWalked.setFont(TextFont);
 	    
 	}
-	 
+
 	public static void SecondFrame(String c1, String c2) {
 		JFrame frame1 = new JFrame("Wanderful Application");
 		frame1.setVisible(true);
@@ -137,13 +163,27 @@ public class Main {
 	    C3.setFont(TextFont);
 	    
 	}
+	
+	
+	public static void main(String[] args) {	
+		
+		// Preset User's Location
+		Intersection user = Reader.currentLocation("299", "Southbrook Drive");
+	    Intersection[] dataset = Reader.Hamilton();
 
+<<<<<<< HEAD
 	public static void main(String[] args) {			
 	    
 		JFrame();
+=======
+		QuickSort.sort(dataset, "lat");
+		System.out.println(user);
+		Paths paths = new Paths(user, dataset, 2000);
+		String Choice1 = paths.getChoices().toString();
+		String Choice2 = paths.getChoices2().toString();
+		
+		JFrame(Choice1,Choice2);
+>>>>>>> bc10418794c89b50f4cf58caf7d5da50fa2d8f9a
 	    System.out.println();
-	    
-		//System.out.println(paths.getSize());
-	    //System.out.println(x.distTo(y[20]));
 	}
 }
