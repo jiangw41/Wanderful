@@ -32,7 +32,7 @@ public class Main {
 		return null;
 	}
 
-	public static void JFrame(String Choice1, String Choice2){
+	public static void JFrame(){
 
 		final Font TitleFont,TextFont;
 		JFrame frame = new JFrame("Wanderful Application");
@@ -65,14 +65,21 @@ public class Main {
 	    	public void actionPerformed(ActionEvent e) {
 	    		String StreetNameValue = (String)cb.getSelectedItem();
 	    		String StreetNumValue = StreetNum.getText();
-	    		String StepGoalValue = StepGoal.getText();
-	    		String StepWalkedValue = StepWalked.getText();
+	    		Integer StepGoalValue = Integer.valueOf(StepGoal.getText());
+	    		Integer StepWalkedValue = Integer.valueOf(StepWalked.getText());
 	    		/*
 	    		System.out.println(StreetNameValue);
 	    		System.out.println(StreetNumValue);
 	    		System.out.println(StepGoalValue);
 	    		System.out.println(StepWalkedValue);
 	    		*/
+	    		Intersection x = Reader.currentLocation(StreetNumValue, StreetNameValue);
+	    	    Intersection[] y = Reader.Hamilton();
+	    		QuickSort.sort(y, "lat");
+	    		//System.out.println(x);
+	    		Paths paths = new Paths(x, y, StepGoalValue-StepWalkedValue);
+	    		String Choice1 = paths.getChoices().toString();
+	    		String Choice2 = paths.getChoices2().toString();
 	    		//close current frame, open new one
 	    		frame.setVisible(false);
 	    		SecondFrame(Choice1,Choice2);
@@ -133,19 +140,7 @@ public class Main {
 
 	public static void main(String[] args) {			
 	    
-	    Intersection x = Reader.currentLocation("299", "Southbrook Drive");
-	    Intersection[] y = Reader.Hamilton();
-		//System.out.println(y[10].distTo(x));
-
-		QuickSort.sort(y, "lat");
-		System.out.println(x);
-		Paths paths = new Paths(x, y, 2000);
-		String Choice1 = paths.getChoices().toString();
-		String Choice2 = paths.getChoices2().toString();
-		System.out.println(Choice1);
-		System.out.println(Choice2);	//Shows list of all the points
-		
-		JFrame(Choice1,Choice2);
+		JFrame();
 	    System.out.println();
 	    
 		//System.out.println(paths.getSize());
